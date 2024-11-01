@@ -51,7 +51,7 @@ export const createContactController = async (req, res) => {
         isFavourite,
         contactType,});
 
-    res.contact(201).json({
+    res.status(201).json({
         status: 201,
         message: `Successfully created a contact!`,
         data: contact,
