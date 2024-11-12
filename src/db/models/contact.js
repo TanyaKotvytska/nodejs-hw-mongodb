@@ -20,10 +20,15 @@ const contactSchema = new Schema(
       default: false,
     },
     contactType: {
-    type: String,
-    enum: ['work', 'home', 'personal'],
-    required: true,
-    default: 'personal',
+      type: String,
+      enum: ['work', 'home', 'personal'],
+      required: true,
+      default: 'personal',
+    },
+    userId: {
+      type: Schema.Types.ObjectId,
+      ref: 'users',
+      required: true
     },
   },
   {
