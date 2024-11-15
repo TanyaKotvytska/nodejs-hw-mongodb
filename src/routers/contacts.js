@@ -11,16 +11,16 @@ const router = Router();
 
 router.use(authenticate);
 
-router.get('/contacts', ctrlWrapper(getContactsController));
+router.get('/', ctrlWrapper(getContactsController));
 
-router.get('/contacts/:contactId', isValidId, ctrlWrapper(getContactByIdController));
+router.get('/:contactId', isValidId, ctrlWrapper(getContactByIdController));
 
-router.post('/register', validateBody(createContactSchema), ctrlWrapper(createContactController));
+router.post('/', validateBody(createContactSchema), ctrlWrapper(createContactController));
 
-router.delete('/contacts/:contactId', isValidId, ctrlWrapper(deleteContactController));
+router.delete('/:contactId', isValidId, ctrlWrapper(deleteContactController));
 
-router.put('/contacts/:contactId', validateBody(createContactSchema), isValidId, ctrlWrapper(upsertContactController));
+router.put('/:contactId', validateBody(createContactSchema), isValidId, ctrlWrapper(upsertContactController));
 
-router.patch('/contacts/:contactId', validateBody(updateContactSchema), isValidId, ctrlWrapper(patchContactController));
+router.patch('/:contactId', validateBody(updateContactSchema), isValidId, ctrlWrapper(patchContactController));
 
 export default router;

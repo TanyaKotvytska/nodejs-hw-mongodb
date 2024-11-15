@@ -71,7 +71,8 @@ export const createContactController = async (req, res) => {
         throw createHttpError(400, 'Name, phoneNumber and contactType are required');
     }
 
-    const contact = await createContact({name,
+    const contact = await createContact({
+        name,
         phoneNumber,
         email,
         isFavourite,
@@ -125,6 +126,7 @@ export const upsertContactController = async (req, res, next) => {
 export const patchContactController = async (req, res, next) => {
     const { contactId } = req.params;
     const userId = req.user._id;
+
     const result = await updateContact(contactId, req.body, userId);
 
     if (!result) {
