@@ -45,6 +45,7 @@ export const getContactsController = async (req, res, next) => {
 
 export const getContactByIdController = async (req, res) => {
     const { contactId } = req.params;
+
     const contact = await getContactById(contactId, req.user._id);
 
     if (!contact) {
@@ -65,7 +66,7 @@ export const createContactController = async (req, res) => {
         isFavourite = false,
         contactType,
     } = req.body;
-    const userId = req.user.id;
+    const userId = req.user._id;
 
     if (!name || !phoneNumber || !contactType) {
         throw createHttpError(400, 'Name, phoneNumber and contactType are required');
@@ -127,7 +128,7 @@ export const patchContactController = async (req, res, next) => {
     const { contactId } = req.params;
     const userId = req.user._id;
 
-    const result = await updateContact(contactId, req.body, userId);
+    const result = await updateContact(contactId, userId, req.body);
 
     if (!result) {
         next(createHttpError(404, 'Contact not found'));

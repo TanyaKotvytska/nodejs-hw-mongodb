@@ -28,7 +28,7 @@ const contactSchema = new Schema(
     userId: {
       type: Schema.Types.ObjectId,
       ref: 'users',
-      required: true
+      required: true,
     },
   },
   {
