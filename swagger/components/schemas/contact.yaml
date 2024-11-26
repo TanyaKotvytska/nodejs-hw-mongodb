@@ -17,11 +17,11 @@ properties:
   phoneNumber:
     description: "Contact's phone number"
     type: string
-    example: '131222'
+    example: '123456789'
   email:
     description: "Contact's email"
     type: string
-    example: 'meshkov@gmail.com'
+    example: 'john.doe@example.com'
   isFavourite:
     description: "Contact's is favourite choice"
     type: boolean
